@@ -52,7 +52,7 @@ function setOutput(){
         }
     }
     let output = $('#output');
-    output.value = `<script src="${location.protocol}${location.hostname}${location.pathname}script/school1.js"></script>
+    output.value = `<script src="${location.protocol}//${location.hostname}${location.pathname}script/school1.js"></script>
 <script>
     let mySchool1 = new school1(${JSON.stringify(newData)});
     mySchool1.init();
