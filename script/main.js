@@ -57,6 +57,6 @@ function setOutput(){
     setTimeout(() => {
         let mySchool1 = new school1(${JSON.stringify(newData)});
         mySchool1.init();
-    }, );
+    }, 30);
 </script>`;
 }
