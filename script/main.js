@@ -54,13 +54,13 @@ function setOutput(){
     let output = $('#output');
     output.value = `<script src="${location.protocol}//${location.hostname}${location.pathname}script/school1.js"></script>
 <script>
-(() => {
-    script = document.createElement('script');
-    script.innerHTML = \`
-        let mySchool1 = new school1(${JSON.stringify(newData)});
-        mySchool1.init();
-    \`;
-    document.appendChild(script);
-})();
+    setTimeout(() => {
+        script = document.createElement('script');
+        script.innerHTML = \`
+            let mySchool1 = new school1(${JSON.stringify(newData)});
+            mySchool1.init();
+        \`;
+        document.appendChild(script);
+    }, );
 </script>`;
 }
