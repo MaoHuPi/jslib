@@ -55,12 +55,8 @@ function setOutput(){
     output.value = `<script src="${location.protocol}//${location.hostname}${location.pathname}script/school1.js"></script>
 <script>
     setTimeout(() => {
-        script = document.createElement('script');
-        script.innerHTML = \`
-            let mySchool1 = new school1(${JSON.stringify(newData)});
-            mySchool1.init();
-        \`;
-        document.appendChild(script);
+        let mySchool1 = new school1(${JSON.stringify(newData)});
+        mySchool1.init();
     }, );
 </script>`;
 }
