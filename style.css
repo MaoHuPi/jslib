@@ -1,0 +1,46 @@
+*:not(textarea, input) {
+    user-select: none;
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    background-color: #1f1f1f;
+    text-align: center;
+    text-align: -webkit-center;
+}
+#container {
+    margin: 5vw;
+    padding: 3vw;
+    text-align: left;
+    width: 80vw;
+    background-color: #ffffff22;
+    border-radius: 1vw;
+}
+.checks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.checks div {
+    margin: 0px 1vw 0px 0px;
+    padding: 0.3vw 1vw;
+    color: black;
+    border-style: solid;
+    border-radius: 100vw;
+    border-color: black;
+    background-color: white;
+    font-size: 1vw;
+    font-weight: bold;
+}
+.checks div[checked="true"] {
+    border-color: #8cacff;
+}
+#output {
+    color: black;
+    width: 100%;
+    min-height: 10vw;
+}
