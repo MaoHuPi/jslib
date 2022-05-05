@@ -52,5 +52,6 @@ html, body {
     border-width: medium;
     border-radius: 1vw;
     border-color: black;
+    font-family: 'Inconsolata', monospace;
     box-sizing: border-box;
 }
