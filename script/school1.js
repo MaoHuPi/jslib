@@ -129,8 +129,10 @@ class school1{
                     toolBar.innerButtonStyle(button);
                     button.style.backgroundImage = `url(${this.path}/content_copy.svg)`;
                     button.style.backgroundSize = '75%';
-                    console.log(header.content);
-                    button.onclick = () => {this.copy('text', header.content.split('\n').map((k, i) => `${i}. ${k}`).join('\n'));};
+                    button.onclick = () => {
+                        console.log(header.content);
+                        this.copy('text', header.content.split('\n').map((k, i) => `${i}. ${k}`).join('\n'));
+                    };
                     toolBar.appendChild(button);
                 }
                 header.appendChild(toolBar);
