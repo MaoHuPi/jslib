@@ -34,6 +34,7 @@ sendXmlhttp('data.json', '', json => {
         $('#data').appendChild(h2);
         $('#data').appendChild(div);
     }
+    setOutput();
 });
 function setOutput(){
     const newData = {};
