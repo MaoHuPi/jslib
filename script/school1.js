@@ -64,8 +64,8 @@ class school1{
         this.maskGrid.style.border = 'none';
         this.maskGrid.style.boxSizing = 'border-box';
         this.maskGrid.style.margin = '0px 0px 0px 1em';
-        this.maskMask
-        // this.maskGrid.setAttribute('id', 's1_GDiv');
+        this.maskMask.addEventListener('click', this.maskClose);
+        this.maskGrid.setAttribute('id', 's1_GDiv');
         // homework tool
         this.homeworkTool = {
             fullScreen: false, 
