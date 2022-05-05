@@ -87,7 +87,7 @@ class school1{
             this.show['editorTool'] = this.homeworkMode == 'edit_form' ? (Object.keys(this.dictFilter(this.editorTool, key => key)).length > 0) : false;
         }
         if(this.show['homeworkTool']){
-            let blockHeaders = $$('.breadcrumb ~ div .row > div > div:nth-child(1)');
+            let blockHeaders = this.$$('.breadcrumb ~ div .row > div > div:nth-child(1)');
             blockHeaders.forEach(header => {
                 header.style.position = 'relative';
                 header.content = header.parentElement.innerText;
