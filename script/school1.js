@@ -22,11 +22,14 @@ class school1{
         this.copyP.style.width = '0px';
         this.copyP.style.height = '0px';
         this.copyP.style.position = 'absolute';
+        this.copyP.style.top = '0px';
+        this.copyP.style.left = '0px';
+        this.copyP.style.fontSize = '0px';
         this.copyP.style.color = 'transparent';
         this.copyP.style.opacity = '0';
         this.copyP.style.pointerEvents = 'none';
         this.copyP.style.userSelect = 'text';
-        this.copyP.style.overflow = 'hidden';
+        this.copyP.style.zIndex = '1';
         this.copyP.appendChild(this.copyA);
         this.body.appendChild(this.copyP);
         // homework tool
