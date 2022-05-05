@@ -61,3 +61,11 @@ function setOutput(){
     }, 30);
 </script>`;
 }
+function copyOutput(){
+    var selection = window.getSelection(), 
+        selectRange = document.createRange();
+    selectRange.selectNode($('#output'));
+    selection.removeAllRanges();
+    selection.addRange(selectRange);
+    document.execCommand('copy');
+}
