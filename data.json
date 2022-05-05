@@ -15,7 +15,7 @@
     "editorTool": {
         "name": "聯絡簿編輯", 
         "check": {
-            "mark": {
+            "newhomeworkmark": {
                 "name": "新作業標記", 
                 "value": false
             }
