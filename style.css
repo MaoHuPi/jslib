@@ -33,6 +33,7 @@ html, body {
     padding: 0.3vw 1vw;
     color: black;
     border-style: solid;
+    border-width: medium;
     border-radius: 100vw;
     border-color: black;
     background-color: white;
@@ -48,6 +49,7 @@ html, body {
     width: 100%;
     min-height: 10vw;
     border-style: solid;
+    border-width: medium;
     border-radius: 1vw;
     border-color: black;
     box-sizing: border-box;
