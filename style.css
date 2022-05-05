@@ -33,12 +33,16 @@ html, body {
     padding: 0.3vw 1vw;
     color: black;
     border-style: solid;
+    border-color: black;
     border-width: medium;
     border-radius: 100vw;
     border-color: black;
     background-color: white;
     font-size: 1vw;
     font-weight: bold;
+}
+.checks div:hover {
+    border-color: #526595;
 }
 .checks div[checked="true"] {
     border-color: #8cacff;
@@ -54,4 +58,23 @@ html, body {
     border-color: black;
     font-family: 'Inconsolata', monospace;
     box-sizing: border-box;
+}
+button {
+    margin: 0px 1vw 0px 0px;
+    padding: 0.3vw 1vw;
+    color: black;
+    border-style: solid;
+    border-color: black;
+    border-width: medium;
+    border-radius: 100vw;
+    border-color: black;
+    background-color: white;
+    font-size: 1vw;
+    font-weight: bold;
+}
+button:hover {
+    border-color: #526595;
+}
+button:active {
+    border-color: #8cacff;
 }
