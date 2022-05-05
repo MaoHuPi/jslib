@@ -62,6 +62,7 @@ function setOutput(){
 </script>`;
 }
 function copyOutput(){
+    $('#output').focus();
     $('#output').setSelectionRange(0, $('#output').value.length);
     document.execCommand('copy');
 }
