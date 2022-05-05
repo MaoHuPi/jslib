@@ -291,6 +291,7 @@ class school1{
     waitForCreatEditTool(functions){
         if(this.$$('span.cke_toolbox > .cke_toolbar > .cke_toolgroup').length/5 == 4){
             functions.forEach(addTool => {
+                console.log(this);
                 addTool();
             });
         }
