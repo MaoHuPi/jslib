@@ -148,11 +148,9 @@ function setMarkListTool(){
             let line = document.createElement('span'), 
             button = document.createElement('a'), 
             icon = document.createElement('span');
-
             line.setAttribute('class', 'cke_toolbar_separator');
             line.setAttribute('role', 'separator');
             group.appendChild(line);
-
             button.setAttribute('class', 'cke_button cke_button__strike cke_button_off');
             button.setAttribute('href', 'javascript:void(\'新作業標籤\')');
             button.setAttribute('title', '新作業標籤');
@@ -169,10 +167,10 @@ function setMarkListTool(){
                 catch(e){
                     frame = false;
                 }
-                if(frame != false && 'getSelection' in window){
-                    let window = frame.contentWindow;
-                    if(window.getSelection().extentNode){
-                        let actionElement = window.getSelection().extentNode.parentElement;
+                if(frame != false){
+                    let subWindow = frame.contentWindow;
+                    if('getSelection' in subWindow && 'extentNode' in subWindow.getSelection()){
+                        let actionElement = subWindow.getSelection().extentNode.parentElement;
                         if(actionElement.tagName == 'A' && actionElement.getAttribute('new') === ''){
                             element.setAttribute('aria-pressed', 'true');
                             button.setAttribute('class', 'cke_button cke_button__strike cke_button_on');
