@@ -62,10 +62,6 @@ function setOutput(){
 </script>`;
 }
 function copyOutput(){
-    var selection = window.getSelection(), 
-        selectRange = document.createRange();
-    selectRange.selectNode($('#output'));
-    selection.removeAllRanges();
-    selection.addRange(selectRange);
+    $('#output').setSelectionRange(0, $('#output').value.length);
     document.execCommand('copy');
 }
