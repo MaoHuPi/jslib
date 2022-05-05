@@ -1,7 +1,6 @@
 * {
     outline: none;
     scrollbar-width: thin;
-    scrollbar-color: #00000055 #48484855;
     scrollbar-color: white #484848;
 }
 *:not(textarea, input) {
