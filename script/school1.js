@@ -33,6 +33,39 @@ class school1{
         this.copyA.style.userSelect = 'text';
         this.copyP.appendChild(this.copyA);
         this.body.appendChild(this.copyP);
+        // mask element
+        this.maskMask = this.createElement('div');
+        this.maskBox = this.createElement('div');
+        this.maskGrid = this.createElement('ol');
+        this.maskMask.style.backgroundColor = '#00000088';
+        this.maskMask.style.position = 'fixed';
+        this.maskMask.style.width = '100vw';
+        this.maskMask.style.height = '100vh';
+        this.maskMask.style.left = '0px';
+        this.maskMask.style.top = '0px';
+        this.maskMask.style.zIndex = '9999';
+        this.maskMask.style.opacity = '0';
+        this.maskMask.style.pointerEvents = 'none';
+        this.maskMask.style.transition = '0.5s';
+        this.maskMask.style.border = 'none';
+        this.maskMask.style.boxSizing = 'border-box';
+        this.maskMask.style.margin = '0px';
+        this.maskBox.style.backgroundColor = '#ffffff';
+        this.maskBox.style.position = 'absolute';
+        this.maskBox.style.width = '95vw';
+        this.maskBox.style.height = 'calc(100vh - 5vw)';
+        this.maskBox.style.left = '2.5vw';
+        this.maskBox.style.top = '2.5vw';
+        this.maskBox.style.zIndex = '10000';
+        this.maskBox.style.borderRadius = '1vw';
+        this.maskBox.style.border = 'none';
+        this.maskBox.style.boxSizing = 'border-box';
+        this.maskBox.style.margin = '0px';
+        this.maskGrid.style.border = 'none';
+        this.maskGrid.style.boxSizing = 'border-box';
+        this.maskGrid.style.margin = '0px 0px 0px 1em';
+        this.maskMask
+        // this.maskGrid.setAttribute('id', 's1_GDiv');
         // homework tool
         this.homeworkTool = {
             fullScreen: false, 
@@ -76,7 +109,6 @@ class school1{
         return(newDict);
     }
     copy(type, text){
-        console.log(text);
         if(type == 'text'){
             this.copyA.innerText = text;
         }
@@ -86,6 +118,24 @@ class school1{
         selection.removeAllRanges();
         selection.addRange(selectRange);
         document.execCommand('copy');
+    }
+    maskOpen(text){
+        this.maskGrid.innerHTML = text;
+        this.whileGDI();
+        this.maskMask.style.opacity = '1';
+        this.maskMask.style.pointerEvents = 'auto';
+    }
+    maskClose(){
+        this.maskMask.style.opacity = '0';
+        this.maskMask.style.pointerEvents = 'none';
+        this.maskGrid.innerHTML = '';
+    }
+    whileGDI(){
+        this.maskGrid.style.fontSize = '2px';
+        while(this.maskGrid.offsetWidth < this.maskBox.offsetWidth && this.maskGrid.offsetHeight < this.maskBox.offsetHeight){
+            this.maskGrid.style.fontSize = parseInt(this.maskGrid.style.fontSize.replace('px', '')) + 1 + 'px';
+        }
+        this.maskGrid.style.fontSize = parseInt(this.maskGrid.style.fontSize.replace('px', '')) - 1 + 'px';
     }
     init(){
         if(this.page == 'homework'){
@@ -128,6 +178,9 @@ class school1{
                     toolBar.innerButtonStyle(button);
                     button.style.backgroundImage = `url(${this.path}/fullscreen.svg)`;
                     button.style.backgroundSize = '100%';
+                    button.onclick = () => {
+                        this.maskOpen(header.content);
+                    }
                     toolBar.appendChild(button);
                 }
                 if(this.homeworkTool['copyContent']){
