@@ -73,7 +73,10 @@ class school1{
                 this.maskClose();
             }
         });
-        this.maskGrid.setAttribute('id', 's1_GDiv');
+        window
+        this.maskMask.className = 's1_maskMask';
+        this.maskBox.className = 's1_maskBox';
+        this.maskGrid.className = 's1_maskGrid';
         this.maskBox.appendChild(this.maskGrid);
         this.maskMask.appendChild(this.maskBox);
         this.body.appendChild(this.maskMask);
@@ -150,7 +153,20 @@ class school1{
         }
         this.maskGrid.style.fontSize = parseInt(this.maskGrid.style.fontSize.replace('px', '')) - 1 + 'px';
     }
+    isZoom(w = 0, h = 0){
+        if(w !== 100*vw() || h !== 100*vh()){
+            w = 100*vw();
+            h = 100*vh();
+            if(this.maskGrid.innerHTML !== ''){
+                this.whileGDI();
+            }
+        }
+        setTimeout(function(a = w, b = h){
+            this.isZoom(a, b);
+        }, 30);
+    }
     init(){
+        this.isZoom();
         if(this.page == 'homework'){
             this.show['homeworkTool'] = this.homeworkMode == 'view' ? (Object.keys(this.dictFilter(this.homeworkTool, key => key)).length > 0) : false;
             this.show['editorTool'] = this.homeworkMode == 'edit_form' ? (Object.keys(this.dictFilter(this.editorTool, key => key)).length > 0) : false;
