@@ -21,7 +21,7 @@ class school1{
         this.copyP.style.padding = '0px';
         this.copyP.style.width = '0px';
         this.copyP.style.height = '0px';
-        this.copyP.style.position = 'absolute';
+        this.copyP.style.position = 'fixed';
         this.copyP.style.top = '0px';
         this.copyP.style.left = '0px';
         this.copyP.style.fontSize = '0px';
