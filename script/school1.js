@@ -25,6 +25,7 @@ class school1{
         this.copyP.style.color = 'transparent';
         this.copyP.style.opacity = '0';
         this.copyP.style.pointerEvents = 'none';
+        this.copyP.style.userSelect = 'text';
         this.copyP.style.overflow = 'hidden';
         this.copyP.appendChild(this.copyA);
         this.body.appendChild(this.copyP);
@@ -75,8 +76,8 @@ class school1{
         if(type == 'text'){
             this.copyA.innerText = text;
         }
-        var selection = window.getSelection();
-        var selectRange = document.createRange();
+        var selection = window.getSelection(), 
+            selectRange = document.createRange();
         selectRange.selectNode(this.copyA);
         selection.removeAllRanges();
         selection.addRange(selectRange);
@@ -131,7 +132,7 @@ class school1{
                     button.style.backgroundImage = `url(${this.path}/content_copy.svg)`;
                     button.style.backgroundSize = '75%';
                     button.onclick = () => {
-                        this.copy('text', header.content.split('\n').map((k, i) => `${i}. ${k}`).join('\n'));
+                        this.copy('text', header.content.split('\n').map((k, i) => `${i+1}. ${k}`).join('\n'));
                     };
                     toolBar.appendChild(button);
                 }
