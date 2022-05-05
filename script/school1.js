@@ -158,9 +158,9 @@ class school1{
         this.maskGrid.style.fontSize = parseInt(this.maskGrid.style.fontSize.replace('px', '')) - 1 + 'px';
     }
     isZoom(w = 0, h = 0){
-        if(w !== 100*vw() || h !== 100*vh()){
-            w = 100*vw();
-            h = 100*vh();
+        if(w !== 100*this.vw() || h !== 100*this.vh()){
+            w = 100*this.vw();
+            h = 100*this.vh();
             if(this.maskGrid.innerHTML !== ''){
                 this.whileGDI();
             }
