@@ -169,6 +169,135 @@ class school1{
             this.isZoom(a, b);
         }, 30);
     }
+    addNewHomeworkMarkTool(){
+        let groups = this.$$('span.cke_toolbox > .cke_toolbar > .cke_toolgroup');
+        for(let i = 4; i < groups.length; i+=5){
+            let group = groups.length > i ? groups[i] : false;
+            if(group != false){
+                let line = document.createElement('span'), 
+                button = document.createElement('a'), 
+                icon = document.createElement('span');
+                line.setAttribute('class', 'cke_toolbar_separator');
+                line.setAttribute('role', 'separator');
+                group.appendChild(line);
+                button.setAttribute('class', 'cke_button cke_button__strike cke_button_off');
+                button.setAttribute('href', 'javascript:void(\'新作業標籤\')');
+                button.setAttribute('title', '新作業標籤');
+                button.setAttribute('tabindex', '-1');
+                button.setAttribute('hidefocus', 'true');
+                button.setAttribute('role', 'button');
+                button.setAttribute('aria-haspopup', 'false');
+                function resetFocus(element){
+                    let parent = group.offsetParent, 
+                    frame = false;
+                    try{
+                        frame = this.$('[role="presentation"].cke_contents > iframe', parent)
+                    }
+                    catch(e){
+                        frame = false;
+                    }
+                    if(frame != false){
+                        let subWindow = frame.contentWindow;
+                        if('getSelection' in subWindow && 'extentNode' in subWindow.getSelection()){
+                            let actionElement = subWindow.getSelection().extentNode.parentElement;
+                            if(actionElement.tagName == 'A' && actionElement.getAttribute('new') === ''){
+                                element.setAttribute('aria-pressed', 'true');
+                                button.setAttribute('class', 'cke_button cke_button__strike cke_button_on');
+                            }
+                            else{
+                                element.removeAttribute('aria-pressed');
+                                button.setAttribute('class', 'cke_button cke_button__strike cke_button_off');
+                            }
+                        }
+                    }
+                    setTimeout((E = element) => {
+                        resetFocus(E);
+                    }, 30);
+                }
+                button.addEventListener('click', function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if(this.getAttribute('aria-pressed') == 'true'){
+                        this.removeAttribute('aria-pressed');
+                        button.setAttribute('class', 'cke_button cke_button__strike cke_button_off');
+                    }
+                    else{
+                        this.setAttribute('aria-pressed', 'true');
+                        button.setAttribute('class', 'cke_button cke_button__strike cke_button_on');
+                    }
+                    let parent = group.offsetParent, 
+                    frame = false;
+                    try{
+                        frame = this.$('[role="presentation"].cke_contents > iframe', parent)
+                    }
+                    catch(e){
+                        frame = false;
+                    }
+                    if(frame != false && 'getSelection' in window){
+                        let window = frame.contentWindow;
+                        if(window.getSelection().extentNode){
+                            let document = window.document, 
+                            actionElement = window.getSelection().extentNode.parentElement, 
+                            endElement = window.getSelection().anchorNode.parentElement;
+                            console.log(actionElement)
+                            console.log(endElement)
+                            function markElement(element, type = 'set'){
+                                if(type == 'set'){
+                                    if(element.tagName == 'A'){
+                                        element.setAttribute('new', '');
+                                    }
+                                    else{
+                                        let a = document.createElement('a');
+                                        a.setAttribute('new', '');
+                                        a.innerHTML = element.innerHTML;
+                                        element.innerHTML = '';
+                                        element.appendChild(a);
+                                    }
+                                }
+                                else{
+                                    element.removeAttribute('new');
+                                }
+                            }
+                            let type = 'set';
+                            if(actionElement.tagName == 'A' && actionElement.getAttribute('new') === ''){
+                                actionElement.removeAttribute('new');
+                                type = 'remove';
+                            }
+                            else{
+                                type = 'set';
+                            }
+                            markElement(actionElement, type)
+                            if(endElement != actionElement){
+                                markElement(endElement, type)
+                            }
+                        }
+                    }
+                    return(false);
+                });
+                button.addEventListener('focus', function(){
+                    this.blur();
+                });
+                icon.innerHTML = '&nbsp;';
+                icon.setAttribute('class', 'cke_button_icon')
+                icon.style.backgroundImage = 'url(\'https://maohupi.riarock.com/web/tool/318station/file/markNEW.png\')';
+                icon.style.backgroundSize = '100%';
+                icon.style.backgroundPosition = 'center';
+                button.appendChild(icon);
+                group.appendChild(button);
+                resetFocus(button);
+            }
+        }
+    }
+    waitForCreatEditTool(functions){
+        if(this.$$('span.cke_toolbox > .cke_toolbar > .cke_toolgroup').length/5 == 4){
+            functions.forEach(addTool => {
+                addTool();
+            });
+        }
+        else{
+            setTimeout(this.waitForCreatEditTool, 100);
+        }
+    }
     init(){
         this.isZoom();
         if(this.page == 'homework'){
@@ -228,6 +357,13 @@ class school1{
                 }
                 header.appendChild(toolBar);
             });
+        }
+        if(this.show['editorTool']){
+            let functions = [];
+            if(this.homeworkTool['newhomeworkmark']){
+                functions.push(this.addNewHomeworkMarkTool);
+            }
+            this.waitForCreatEditTool(functions);
         }
     }
 }
