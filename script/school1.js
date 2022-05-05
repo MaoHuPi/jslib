@@ -1,3 +1,7 @@
+/*/
+ * school1.js - v1.0.0
+ * by MaoHuPi
+/*/
 'use strict'
 class school1{
     constructor(settings = {}){
