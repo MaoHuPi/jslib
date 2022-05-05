@@ -209,7 +209,7 @@ class school1{
                     button.style.backgroundImage = `url(${this.path}/fullscreen.svg)`;
                     button.style.backgroundSize = '100%';
                     button.onclick = () => {
-                        this.maskOpen(header.content);
+                        this.maskOpen('<li>' + header.content.split('\n').join('</li><li>') + '</li>');
                     }
                     toolBar.appendChild(button);
                 }
