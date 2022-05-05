@@ -161,7 +161,7 @@ class school1{
                 this.whileGDI();
             }
         }
-        setTimeout(function(a = w, b = h){
+        setTimeout((a = w, b = h) => {
             this.isZoom(a, b);
         }, 30);
     }
