@@ -162,6 +162,7 @@ class school1{
             }
         }
         setTimeout((a = w, b = h) => {
+            console.log(this);
             this.isZoom(a, b);
         }, 30);
     }
