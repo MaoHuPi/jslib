@@ -65,7 +65,7 @@ class school1{
         this.maskGrid.style.boxSizing = 'border-box';
         this.maskGrid.style.margin = '0px 0px 0px 1em';
         this.maskMask.addEventListener('click', () => {this.maskClose();});
-        this.maskBox.addEventListener('click', () => {e.stopPropagation();});
+        this.maskBox.addEventListener('click', (event) => {event.stopPropagation();});
         window.addEventListener('keydown', (event) => {
             if(this.maskMask.opened && event.key == 'Escape'){
                 event.preventDefault();
