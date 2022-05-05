@@ -30,6 +30,7 @@ class school1{
         this.copyP.style.pointerEvents = 'none';
         this.copyP.style.userSelect = 'text';
         this.copyP.style.zIndex = '1';
+        this.copyA.style.userSelect = 'text';
         this.copyP.appendChild(this.copyA);
         this.body.appendChild(this.copyP);
         // homework tool
