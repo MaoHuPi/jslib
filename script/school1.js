@@ -64,7 +64,7 @@ class school1{
         this.maskGrid.style.border = 'none';
         this.maskGrid.style.boxSizing = 'border-box';
         this.maskGrid.style.margin = '0px 0px 0px 1em';
-        this.maskMask.addEventListener('click', this.maskClose);
+        this.maskMask.addEventListener('click', () => {this.maskClose});
         this.maskGrid.setAttribute('id', 's1_GDiv');
         this.maskBox.appendChild(this.maskGrid);
         this.maskMask.appendChild(this.maskBox);
