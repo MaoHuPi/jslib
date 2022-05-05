@@ -291,11 +291,11 @@ class school1{
     waitForCreatEditTool(functions){
         if(this.$$('span.cke_toolbox > .cke_toolbar > .cke_toolgroup').length/5 == 4){
             for(let index in functions){
-                functions[index]();
+                functions[index].bind(this);
             }
         }
         else{
-            setTimeout(this.waitForCreatEditTool, 100);
+            setTimeout(this.waitForCreatEditTool, 100, functions);
         }
     }
     init(){
