@@ -43,10 +43,12 @@ html, body {
     border-color: #8cacff;
 }
 #output {
+    padding: 1vw;
     color: black;
     width: 100%;
     min-height: 10vw;
     border-style: solid;
     border-radius: 1vw;
     border-color: black;
+    box-sizing: border-box;
 }
