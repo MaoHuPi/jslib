@@ -71,6 +71,7 @@ class school1{
         return(newDict);
     }
     copy(type, text){
+        console.log(text);
         if(type == 'text'){
             this.copyA.innerText = text;
         }
@@ -130,7 +131,6 @@ class school1{
                     button.style.backgroundImage = `url(${this.path}/content_copy.svg)`;
                     button.style.backgroundSize = '75%';
                     button.onclick = () => {
-                        console.log(header.content);
                         this.copy('text', header.content.split('\n').map((k, i) => `${i}. ${k}`).join('\n'));
                     };
                     toolBar.appendChild(button);
