@@ -49,7 +49,7 @@ function cheat(){
     cheatArray.prototype.unorderedList = function(){
         return(this.map(text => `- ${text}`).join('\n'));
     }
-    class cheatClass_sanmin{
+    class cheatClass_sanmin{ // exam.sanmin.com.tw
         getQuestions(){ // 取得所有題目
             let questions = [];
             cheat.$$('tbody > tr:nth-child(2) > td:nth-child(2)').forEach(td => {
@@ -64,7 +64,11 @@ function cheat(){
             /*
                 只能在https://exam.sanmin.com.tw中使用
             */
-            cheat.sendXmlhttp('https://exam.sanmin.com.tw/exam/home/default.aspx', '?FN=logout', () => {});
+            try{
+                cheat.sendXmlhttp('https://exam.sanmin.com.tw/exam/home/default.aspx', '?FN=logout', () => {});
+                return(true);
+            }
+            catch(error){return(false);}
         }
         new(){ // 在新分頁開啟
             window.open('https://exam.sanmin.com.tw/exam/home/');
@@ -102,8 +106,17 @@ function cheat(){
             window.open('https://meet.google.com/');
         }
     }
+    class white200{ // tumoiyorozu.github.io/white200
+
+    }
     var object = new cheat();
     object.sanmin = new cheatClass_sanmin();
     object.googleMeet = new cheatClass_googleMeet();
     return(object);
 }
+
+// (() => {
+//     make_problem(200, 1);
+//     colorCode = document.querySelector('#problem_text').innerText.split('\n')[1];
+//     document.querySelector(`#col_${colorCode.replace('#', '')}`).click();
+// })();
