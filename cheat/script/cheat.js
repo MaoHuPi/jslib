@@ -32,25 +32,22 @@ function cheat(){
             window.open('https://github.com/MaoHuPi/cheat.js/');
         }
     }
-    class cheatArray{
-        constructor(...array){
-            this.value = array;
-        }
-        search = function(start = '', end = ''){
-            let accords = [];
-            this.value.forEach(text => {
-               if((start == '' || text.indexOf(start) == 0) && (end == '' || text.indexOf(end) == text.length - end.length)){
-                   accords.push(text);
-               } 
-            });
-            return(accords);
-        }
-        orderedList = function(){
-            return(this.value.map((text, index) => `${index+1}. ${text}`).join('\n'));
-        }
-        unorderedList = function(){
-            return(this.value.map(text => `- ${text}`).join('\n'));
-        }
+    class cheatArray extends Array{
+    }
+    cheatArray.prototype.search = function(start = '', end = ''){
+        let accords = [];
+        this.forEach(text => {
+           if((start == '' || text.indexOf(start) == 0) && (end == '' || text.indexOf(end) == text.length - end.length)){
+               accords.push(text);
+           } 
+        });
+        return(accords);
+    }
+    cheatArray.prototype.orderedList = function(){
+        return(this.map((text, index) => `${index+1}. ${text}`).join('\n'));
+    }
+    cheatArray.prototype.unorderedList = function(){
+        return(this.map(text => `- ${text}`).join('\n'));
     }
     class cheatClass_sanmin{
         getQuestions(){ // 取得所有題目
