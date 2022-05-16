@@ -1,7 +1,7 @@
-/*/
- * cheat.js - v1.0.0
- * by MaoHuPi
-/*/
+/*
+ * Copyright © 2022 by MaoHuPi
+ * cheet.js - v1.0.0
+ */
 // (() => {
 //     let xmlhttp = new XMLHttpRequest();
 //     let rf = function (){
@@ -13,7 +13,7 @@
 //     xmlhttp.open("GET", 'https://raw.githubusercontent.com/MaoHuPi/cheat.js/main/cheat.ls');
 //     xmlhttp.send();
 // })();
-function cheat(){
+export function cheat(){
     class cheat{
         static sendXmlhttp(name = '', value = '', responseFunction = t => {console.log(t);}, type = 'get'){
             let xmlhttp = new XMLHttpRequest();
