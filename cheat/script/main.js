@@ -7,8 +7,8 @@ $('#output').value = `((variableName) => {
     }
     xmlhttp.addEventListener("readystatechange", rf);
     xmlhttp.open("GET", 'https://maohupi.github.io/jslib/cheat/script/cheat.js');
-    xmlhttp.send('cheat');
-})();`;
+    xmlhttp.send();
+})('cheat');`;
 function copyOutput(){
     $('#output').focus();
     $('#output').setSelectionRange(0, $('#output').value.length);
