@@ -2,18 +2,7 @@
  * Copyright © 2022 by MaoHuPi
  * cheet.js - v1.0.0
  */
-// (() => {
-//     let xmlhttp = new XMLHttpRequest();
-//     let rf = function (){
-//         if (xmlhttp.readyState==4) {
-//             eval(xmlhttp.responseText+'\nwindow.cheat = new cheat();\nconsole.log(window);');
-//         }
-//     }
-//     xmlhttp.addEventListener("readystatechange", rf);
-//     xmlhttp.open("GET", 'https://raw.githubusercontent.com/MaoHuPi/cheat.js/main/cheat.ls');
-//     xmlhttp.send();
-// })();
-export function cheat(){
+function cheat(){
     class cheat{
         static sendXmlhttp(name = '', value = '', responseFunction = t => {console.log(t);}, type = 'get'){
             let xmlhttp = new XMLHttpRequest();
