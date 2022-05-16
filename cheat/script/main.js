@@ -1,5 +1,4 @@
-$('#output').value = `
-(() => {
+$('#output').value = `(() => {
     let xmlhttp = new XMLHttpRequest();
     let rf = function (){
         if (xmlhttp.readyState==4) {
@@ -7,7 +6,6 @@ $('#output').value = `
         }
     }
     xmlhttp.addEventListener("readystatechange", rf);
-    xmlhttp.open("GET", 'https://raw.githubusercontent.com/MaoHuPi/cheat.js/main/cheat.ls');
+    xmlhttp.open("GET", 'https://maohupi.github.io/jslib/cheat/script/cheat.js');
     xmlhttp.send();
-})();
-`;
+})();`;
