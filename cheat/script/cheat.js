@@ -26,7 +26,7 @@ function cheat(){
         static $ = function(element, parent = document){return(parent.querySelector(element));}; 
         static $$ = function(element, parent = document){return(parent.querySelectorAll(element));};
         array(...array){
-            return(cheatArray(...array));
+            return(new cheatArray(...array));
         }
         new(){ // 在新分頁開啟
             window.open('https://github.com/MaoHuPi/cheat.js/');
