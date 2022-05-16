@@ -53,7 +53,10 @@ function setOutput(){
         }
     }
     let output = $('#output');
-    output.value = `<script src="${location.protocol}//${location.hostname}${location.pathname}script/school1.js"></script>
+    var path = location.href.split('/');
+    path[path.length-1] = '';
+    path = path.join('/');
+    output.value = `<script src="${path}script/school1.js"></script>
 <script>
     setTimeout(() => {
         let mySchool1 = new school1(${JSON.stringify(newData)});
