@@ -23,14 +23,39 @@ function cheat(){
                 xmlhttp.send(value);
             }
         }
+        static $ = function(element, parent = document){return(parent.querySelector(element));}; 
+        static $$ = function(element, parent = document){return(parent.querySelectorAll(element));};
+        array(...array){
+            return(cheatArray(...array));
+        }
         new(){ // 在新分頁開啟
             window.open('https://github.com/MaoHuPi/cheat.js/');
+        }
+    }
+    class cheatArray{
+        constructor(...array){
+            this.value = array;
+        }
+        search = function(start = '', end = ''){
+            let accords = [];
+            this.value.forEach(text => {
+               if((start == '' || text.indexOf(start) == 0) && (end == '' || text.indexOf(end) == text.length - end.length)){
+                   accords.push(text);
+               } 
+            });
+            return(accords);
+        }
+        orderedList = function(){
+            return(this.value.map((text, index) => `${index+1}. ${text}`).join('\n'));
+        }
+        unorderedList = function(){
+            return(this.value.map(text => `- ${text}`).join('\n'));
         }
     }
     class cheatClass_sanmin{
         getQuestions(){ // 取得所有題目
             let questions = [];
-            $$('tbody > tr:nth-child(2) > td:nth-child(2)').forEach(td => {
+            cheat.$$('tbody > tr:nth-child(2) > td:nth-child(2)').forEach(td => {
                 let text = td.innerText;
                 if(text.indexOf('(請於考場公佈這組序號給學生)') == -1){
                     questions.push(text.replace(' ', ''))
@@ -53,47 +78,32 @@ function cheat(){
             /*
                 1號 無法使用
             */
-            $ = function(element, parent = document){return(parent.querySelector(element));}; 
-            $$ = function(element, parent = document){return(parent.querySelectorAll(element));}; 
-            let texts = document.querySelectorAll('.oIy2qc');
-            let text = texts[texts.length-1];
-            if(texts.length > 0 && text && parseInt(parseFloat(text.innerText)) == num-1){
-                $('#bfTqV').value = num;
-                var sendButton = $('button', $$('span', $('.BC4V9b', $("#bfTqV").offsetParent.offsetParent.offsetParent))[3]);
-                sendButton.removeAttribute('disabled');
-                sendButton.click();
-                console.log(`已傳送「${num}」！`);
+            if(location.href.indexOf('://meet.google.com/') > -1){
+                let texts = document.querySelectorAll('.oIy2qc');
+                let text = texts[texts.length-1];
+                if(texts.length > 0 && text && parseInt(parseFloat(text.innerText)) == num-1){
+                    cheat.$('#bfTqV').value = num;
+                    var sendButton = cheat.$('button', cheat.$$('span', cheat.$('.BC4V9b', cheat.$("#bfTqV").offsetParent.offsetParent.offsetParent))[3]);
+                    sendButton.removeAttribute('disabled');
+                    sendButton.click();
+                    console.log(`已傳送「${num}」！`);
+                }
+                else{
+                    setTimeout((n = num) => {
+                        try{
+                            this.numberCheck(n);
+                        }
+                        catch(error){
+                            console.error(error);
+                        }
+                    }, 100);
+                }
+                return(true);
             }
-            else{
-                setTimeout((n = num) => {
-                    try{
-                        this.numberCheck(n);
-                    }
-                    catch(error){
-                        console.error(error);
-                    }
-                }, 100);
-            }
-            return(true);
         }
         new(){ // 在新分頁開啟
             window.open('https://meet.google.com/');
         }
-    }
-    Array.prototype.search = function(start = '', end = ''){
-        let accords = [];
-        this.forEach(text => {
-           if((start == '' || text.indexOf(start) == 0) && (end == '' || text.indexOf(end) == text.length - end.length)){
-               accords.push(text);
-           } 
-        });
-        return(accords);
-    }
-    Array.prototype.orderedList = function(){
-        return(this.map((text, index) => `${index+1}. ${text}`).join('\n'));
-    }
-    Array.prototype.unorderedList = function(){
-        return(this.map(text => `- ${text}`).join('\n'));
     }
     var object = new cheat();
     object.sanmin = new cheatClass_sanmin();
