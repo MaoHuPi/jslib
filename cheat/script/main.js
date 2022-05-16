@@ -9,3 +9,8 @@ $('#output').value = `(() => {
     xmlhttp.open("GET", 'https://maohupi.github.io/jslib/cheat/script/cheat.js');
     xmlhttp.send();
 })();`;
+function copyOutput(){
+    $('#output').focus();
+    $('#output').setSelectionRange(0, $('#output').value.length);
+    document.execCommand('copy');
+}
