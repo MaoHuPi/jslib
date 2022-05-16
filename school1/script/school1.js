@@ -77,7 +77,6 @@ class school1{
                 this.maskClose();
             }
         });
-        window
         this.maskMask.className = 's1_maskMask';
         this.maskBox.className = 's1_maskBox';
         this.maskGrid.className = 's1_maskGrid';
