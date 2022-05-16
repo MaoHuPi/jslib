@@ -2,7 +2,7 @@ $('#output').value = `(() => {
     let xmlhttp = new XMLHttpRequest();
     let rf = function (){
         if (xmlhttp.readyState==4) {
-            eval(xmlhttp.responseText+'\nwindow.cheat = new cheat();\nconsole.log(window);');
+            eval(xmlhttp.responseText+'window.cheat = new cheat();console.log(window);');
         }
     }
     xmlhttp.addEventListener("readystatechange", rf);
