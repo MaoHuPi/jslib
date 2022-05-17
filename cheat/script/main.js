@@ -7,12 +7,10 @@ function setOutput(){
     path = path.join('/');
     $('#output').value = {
         'html': 
-`
-<script src="${path}script/cheat.js"></script>
+`<script src="${path}script/cheat.js"></script>
 <script>
     window['cheat'] = new cheat();
-</script>
-`, 
+</script>`, 
         'js(xmlhttp)': 
 `((variableName) => {
     let xmlhttp = new XMLHttpRequest();
