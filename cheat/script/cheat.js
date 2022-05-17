@@ -113,23 +113,23 @@ function cheat(){
         }
     }
     class white200{ // tumoiyorozu.github.io/white200
-        action(){
+        action(){ // 開始回合
             isFunction = 'make_problem' in window;
             if(isFunction){
                 make_problem(200, 1);
             }
             return(isFunction);
         }
-        getProblemColor(){
+        getProblemColor(){ // 取得題目(string)
             var color = cheat.$("#problem_color_box").style.backgroundColor;
             return(color);
         }
-        getProblemArray(){
+        getProblemArray(){ // 取得題目(array)
             var color = this.getProblemColor();
             color = new cheatString(color);
             color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
         }
-        submit(...any){
+        submit(...any){ // 送出答案
             var type = undefined, 
                 color = undefined, 
                 flag = false;
@@ -162,15 +162,16 @@ function cheat(){
                 type: type
             });
         }
+        correct(){
+            colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
+            document.querySelector(`#col_${colorCode.replace('#', '')}`).click();
+        }
+        new(){ // 在新分頁開啟
+            window.open('https://tumoiyorozu.github.io/white200/');
+        }
     }
     var object = new cheat();
     object.sanmin = new cheatClass_sanmin();
     object.googleMeet = new cheatClass_googleMeet();
     return(object);
 }
-
-// (() => {
-//     make_problem(200, 1);
-//     colorCode = document.querySelector('#problem_text').innerText.split('\n')[1];
-//     document.querySelector(`#col_${colorCode.replace('#', '')}`).click();
-// })();
