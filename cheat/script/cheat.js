@@ -117,7 +117,7 @@ class cheat{
                     switch(any.length){
                         case 1:
                             color = any[0];
-                            if(typeof any == 'string'){
+                            if(typeof color == 'string'){
                                 type = 'string'
                                 color = new cheatString(color);
                                 color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
