@@ -17,8 +17,16 @@
         <h1>cheet.js - 使用說明介面</h1>
         <div id="data"></div>
         <h2>匯入語法：</h2>
+        <div>
+            <input id="outputType-html" name="outputType" type="audio" value="html">
+            <label for="outputType-html">script標籤</label>
+            <input id="outputType-js(xmlhttp)" name="outputType" type="audio" value="js(xmlhttp)">
+            <label for="outputType-js(xmlhttp)">xmlhttp請求</label>
+            <input id="outputType-js(cheet)" name="outputType" type="audio" value="js(cheet)">
+            <label for="outputType-js(cheet)">js內容</label>
+        </div>
         <textarea name="output" id="output" spellcheck="false"></textarea>
-        <button onclick="copyOutput();">複製標籤</button>
+        <button onclick="copyOutput();">複製語法</button>
     </div>
     <script src="script/main.js"></script>
 </body>
