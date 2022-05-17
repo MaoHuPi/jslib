@@ -31,3 +31,4 @@ function copyOutput(){
     $('#output').setSelectionRange(0, $('#output').value.length);
     document.execCommand('copy');
 }
+setOutput();
