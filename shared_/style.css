@@ -114,6 +114,9 @@ legend {
     border-radius: 1vw;
     border-color: black;
 }
+input[type="radio"] {
+    display: none;
+}
 input[type="radio"] + label {
     background-color: white;
 }
