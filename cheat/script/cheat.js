@@ -106,6 +106,7 @@ class cheat{
                 var color = this.getProblemColor();
                 color = new cheatString(color);
                 color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
+                return(color);
             }
             submit(...any){ // 送出答案
                 var type = undefined, 
