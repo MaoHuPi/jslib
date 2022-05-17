@@ -7,22 +7,21 @@ function setOutput(){
     path = path.join('/');
     $('#output').value = {
         'html(script)': 
-`<script src="${path}script/cheat.js"></script>
-<script>
-    window['cheat'] = new cheat();
-</script>`, 
+`<script src="${path}script/cheat.js"></script>`, 
         'js(xmlhttp)': 
-`((variableName) => {
+`((func = () => {}) => {
     let xmlhttp = new XMLHttpRequest();
-    let rf = function (){
-        if (xmlhttp.readyState==4) {
-            eval(xmlhttp.responseText+\`window.\$\{variableName\} = new cheat();\`);
+    let rf = () => {
+        if(xmlhttp.readyState == 4){
+            let name = \`provisionalVariable_cheat\`;
+            new Function(\`window['\$\{name\}'] = \` + xmlhttp.responseText)();
+            func(window[name]);
         }
     }
     xmlhttp.addEventListener("readystatechange", rf);
     xmlhttp.open("GET", '${path}script/cheat.js');
     xmlhttp.send();
-})('cheat');`, 
+})();`, 
         'js(cheet)': window['cheat.js']
     }[$('input[name="outputType"]:checked').value];
 }
