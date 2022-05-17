@@ -152,10 +152,10 @@ class cheat{
                 if(clickMode){
                     let isElement = cheat.$$('#problem_text').length > 0;
                     if(isElement){
-                        var colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
+                        var colorCode = cheat.$('#problem_text').innerText.split('\n')[1], 
+                            color = colorCode.replace('#', '');
                         isElement = cheat.$$(`#col_${color}`).length > 0;
                         if(isElement){
-                            color = colorCode.replace('#', '');
                             cheat.$(`#col_${color}`).click();
                         }
                     }
