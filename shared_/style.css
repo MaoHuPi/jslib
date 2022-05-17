@@ -95,3 +95,21 @@ button:hover {
 button:active {
     border-color: #8cacff;
 }
+fieldset {
+    color: black;
+    background-color: white;
+    border-style: solid;
+    border-width: medium;
+    border-radius: 1vw;
+    border-color: black;
+    padding: 1vw;
+    margin: 0px 0px 1vw 0px;
+}
+legend {
+    color: black;
+    background-color: white;
+    border-style: solid;
+    border-width: medium;
+    border-radius: 1vw;
+    border-color: black;
+}
