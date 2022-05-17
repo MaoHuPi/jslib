@@ -19,11 +19,11 @@
         <h2>匯入語法：</h2>
         <fieldset>
             <legend>語法類型</legend>
-            <input name="outputType" type="radio" value="html" id="outputType-html">
+            <input name="outputType" type="radio" onchange="setOutput();" value="html" id="outputType-html">
             <label for="outputType-html">script標籤</label>
-            <input name="outputType" type="radio" value="js(xmlhttp)" id="outputType-js(xmlhttp)">
+            <input name="outputType" type="radio" onchange="setOutput();" value="js(xmlhttp)" id="outputType-js(xmlhttp)">
             <label for="outputType-js(xmlhttp)">xmlhttp請求</label>
-            <input name="outputType" type="radio" value="js(cheet)" id="outputType-js(cheet)">
+            <input name="outputType" type="radio" onchange="setOutput();" value="js(cheet)" id="outputType-js(cheet)">
             <label for="outputType-js(cheet)">cheet.js內容</label>
         </fieldset>
         <textarea name="output" id="output" spellcheck="false"></textarea>
