@@ -132,19 +132,20 @@ class cheat{
                             break;
                     }
                     if(flag){
-                        window['submit'](...any);
+                        window['submit'](...color);
                     }
                 }
                 return({
                     status: isFunction && (type !== undefined), 
-                    type: type
+                    type: type, 
+                    color: color
                 });
             }
             correct(clickMode = false){ // 送出正確答案
                 if(clickMode){
                     let isElement = cheat.$$('#problem_text').length > 0;
                     if(isElement){
-                        colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
+                        var colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
                         isElement = cheat.$$(`#col_${color}`).length > 0;
                         if(isElement){
                             color = colorCode.replace('#', '');
