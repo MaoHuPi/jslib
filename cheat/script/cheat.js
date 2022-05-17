@@ -106,13 +106,14 @@ class cheat{
                 var color = this.getProblemColor();
                 color = new cheatString(color);
                 color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
+                color = color.map((text) => parseInt(text));
                 return(color);
             }
             submit(...any){ // 送出答案
                 var type = undefined, 
                     color = undefined, 
                     flag = false, 
-                    error = undefined
+                    error = undefined;
                 let isFunction = 'submit' in window;
                 if(isFunction){
                     switch(any.length){
@@ -122,8 +123,9 @@ class cheat{
                                 type = 'string'
                                 color = new cheatString(color);
                                 color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
+                                color = color.map((text) => parseInt(text));
                             }else if(typeof color == 'object' && 'lenght' in color && color.lenght === 3){
-                                type = 'array'
+                                type = 'array';
                             }
                             flag = true;
                             break;
@@ -148,10 +150,26 @@ class cheat{
                     error: error
                 });
             }
-            correct(){ // 送出正確答案
-                return({
-                    submit: this.submit(this.getProblemColor())
-                });
+            correct(clickMode = false){ // 送出正確答案
+                if(clickMode){
+                    let isElement = cheat.$$('#problem_text').length > 0;
+                    if(isElement){
+                        var colorCode = cheat.$('#problem_text').innerText.split('\n')[1], 
+                            color = colorCode.replace('#', '');
+                        isElement = cheat.$$(`#col_${color}`).length > 0;
+                        if(isElement){
+                            cheat.$(`#col_${color}`).click();
+                        }
+                    }
+                    return(isElement);
+                }else{
+                    var color = this.getProblemColor(), 
+                        submit = this.submit();
+                    return({
+                        color: color, 
+                        submit: submit
+                    });
+                }
             }
             new(){ // 在新分頁開啟
                 window.open('https://tumoiyorozu.github.io/white200/');
