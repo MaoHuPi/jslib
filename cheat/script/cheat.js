@@ -27,6 +27,16 @@ class cheat{
         cheatArray.prototype.unorderedList = function(){
             return(this.map(text => `- ${text}`).join('\n'));
         }
+        class cheatObject extends Object{
+            keyOf(value){
+                for(key in this){
+                    if(this[key] == value){
+                        return(key);
+                    }
+                }
+                return(undefined);
+            }
+        }
         class cheatClass_sanmin{ // exam.sanmin.com.tw
             getQuestions(){ // 取得所有題目
                 let questions = [];
@@ -175,11 +185,37 @@ class cheat{
                 window.open('https://tumoiyorozu.github.io/white200/');
             }
         }
+        class cheatClass_twitch{ // www.twitch.tv
+            constructor(){
+                this.cleanLoyaltyPoints_auto = false;
+            }
+            cleanLoyaltyPoints(auto = this.cleanLoyaltyPoints_auto){ // 領取忠誠點數
+                this.cleanLoyaltyPoints_auto = auto;
+                pointButtons = cheat.$$('[aria-label="領取額外獎勵"]');
+                if(pointButtons.length > 0){
+                    pointButtons.forEach(button => {
+                        button.click();
+                        // cheat.$$('h1.tw-title')[0].innerHTML += '[c]';
+                        console.log('已自動領取忠誠點數！');
+                    });
+                }
+                if(auto){
+                    setTimeout(this.cleanLoyaltyPoints, 1e3);
+                }
+            }
+            stopAutoClean(){ // 停止自動領取忠誠點數
+                this.cleanLoyaltyPoints_auto = false;
+            }
+            new(){ // 在新分頁開啟
+                window.open('https://www.twitch.tv/');
+            }
+        }
         this.cheatString = cheatString;
         this.cheatArray = cheatArray;
         this.sanmin = new cheatClass_sanmin();
         this.googleMeet = new cheatClass_googleMeet();
         this.white200 = new cheatClass_white200();
+        this.twitch = new cheatClass_twitch();
     }
     static sendXmlhttp(name = '', value = '', responseFunction = t => {console.log(t);}, type = 'get'){
         let xmlhttp = new XMLHttpRequest();
