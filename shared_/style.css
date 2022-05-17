@@ -96,16 +96,17 @@ button:active {
     border-color: #8cacff;
 }
 fieldset {
+    margin: 0px 0px 1vw 0px;
+    padding: 1vw;
     color: black;
     background-color: white;
     border-style: solid;
     border-width: medium;
     border-radius: 1vw;
     border-color: black;
-    padding: 1vw;
-    margin: 0px 0px 1vw 0px;
 }
 legend {
+    padding: 0.5vw 1vw;
     color: black;
     background-color: white;
     border-style: solid;
