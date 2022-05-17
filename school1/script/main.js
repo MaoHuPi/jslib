@@ -1,6 +1,6 @@
 'use strict';
 let data = {};
-sendXmlhttp('data.json', '', json => {
+sendXmlhttp('json/data.json', '', json => {
     data = JSON.parse(json);
     for(let titleId in data){
         let h2 = document.createElement('h2'), 
