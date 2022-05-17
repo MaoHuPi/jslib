@@ -16,8 +16,7 @@ function cheat(){
             if(type == 'get'){
                 xmlhttp.open("GET", name+value);
                 xmlhttp.send();
-            }
-            else if(type == 'post'){
+            }else if(type == 'post'){
                 xmlhttp.open("POST", name,true);
                 xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xmlhttp.send(value);
@@ -25,12 +24,20 @@ function cheat(){
         }
         static $ = function(element, parent = document){return(parent.querySelector(element));}; 
         static $$ = function(element, parent = document){return(parent.querySelectorAll(element));};
+        string(...any){
+            return(new cheatString(...any));
+        }
         array(...array){
             return(new cheatArray(...array));
         }
         new(){ // 在新分頁開啟
             window.open('https://github.com/MaoHuPi/cheat.js/');
         }
+    }
+    class cheatString extends String{
+    }
+    cheatString.prototype.replaceAll = function(keyword, replacement){
+        return(this.split(keyword).join(replacement));
     }
     class cheatArray extends Array{
     }
@@ -88,8 +95,7 @@ function cheat(){
                     sendButton.removeAttribute('disabled');
                     sendButton.click();
                     console.log(`已傳送「${num}」！`);
-                }
-                else{
+                }else{
                     setTimeout((n = num) => {
                         try{
                             this.numberCheck(n);
@@ -107,7 +113,55 @@ function cheat(){
         }
     }
     class white200{ // tumoiyorozu.github.io/white200
-
+        action(){
+            isFunction = 'make_problem' in window;
+            if(isFunction){
+                make_problem(200, 1);
+            }
+            return(isFunction);
+        }
+        getProblemColor(){
+            var color = cheat.$("#problem_color_box").style.backgroundColor;
+            return(color);
+        }
+        getProblemArray(){
+            var color = this.getProblemColor();
+            color = new cheatString(color);
+            color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
+        }
+        submit(...any){
+            var type = undefined, 
+                color = undefined, 
+                flag = false;
+            isFunction = 'submit' in window;
+            if(isFunction){
+                switch(any.length){
+                    case 1:
+                        any = any[0];
+                        if(typeof any == 'string'){
+                            type = 'string'
+                            color = new cheatString(any);
+                            color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
+                        }else if('lenght' in any && any.lenght === 3){
+                            type = 'array'
+                        }
+                        flag = true;
+                        break;
+                    case 3:
+                        type = 'rgb';
+                        color = any;
+                        flag = true;
+                        break;
+                }
+                if(flag){
+                    window['submit'](...any);
+                }
+            }
+            return({
+                status: isFunction && (type !== undefined), 
+                type: type
+            });
+        }
     }
     var object = new cheat();
     object.sanmin = new cheatClass_sanmin();
