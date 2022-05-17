@@ -111,7 +111,8 @@ class cheat{
             submit(...any){ // 送出答案
                 var type = undefined, 
                     color = undefined, 
-                    flag = false;
+                    flag = false, 
+                    error = undefined
                 let isFunction = 'submit' in window;
                 if(isFunction){
                     switch(any.length){
@@ -133,13 +134,18 @@ class cheat{
                             break;
                     }
                     if(flag){
-                        window['submit'](...color);
+                        try{
+                            window['submit'](...color);
+                        }catch(errorMessage){
+                            error = errorMessage;
+                        }
                     }
                 }
                 return({
                     status: isFunction && (type !== undefined), 
                     type: type, 
-                    color: color
+                    color: color, 
+                    error: error
                 });
             }
             correct(clickMode = false){ // 送出正確答案
