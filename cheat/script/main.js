@@ -6,7 +6,7 @@ function setOutput(){
     path[path.length-1] = '';
     path = path.join('/');
     $('#output').value = {
-        'html': 
+        'html(script)': 
 `<script src="${path}script/cheat.js"></script>
 <script>
     window['cheat'] = new cheat();
