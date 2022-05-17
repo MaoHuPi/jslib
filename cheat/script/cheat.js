@@ -121,7 +121,7 @@ class cheat{
                                 type = 'string'
                                 color = new cheatString(color);
                                 color = color.split('(')[1].split(')')[0].replaceAll(' ', '').split(',');
-                            }else if('lenght' in color && color.lenght === 3){
+                            }else if(typeof color == 'object' && 'lenght' in color && color.lenght === 3){
                                 type = 'array'
                             }
                             flag = true;
