@@ -163,8 +163,8 @@ class cheat{
                     }
                     return(isElement);
                 }else{
-                    var color = this.getProblemColor(), 
-                        submit = this.submit();
+                    var color = this.getProblemColor();
+                    var submit = this.submit(color);
                     return({
                         color: color, 
                         submit: submit
