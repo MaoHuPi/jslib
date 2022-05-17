@@ -118,7 +118,9 @@ input[type="radio"] {
     display: none;
 }
 input[type="radio"] + label {
+    padding: 0vw 1vw;
     background-color: white;
+    border-radius: 0.5vw;
 }
 input[type="radio"] + label:hover {
     background-color: #526595;
