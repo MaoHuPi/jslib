@@ -114,9 +114,16 @@ function cheat(){
     }
     class white200{ // tumoiyorozu.github.io/white200
         action(){ // 開始回合
+            isElement = cheat.$$('.start_btn').length > 0;
+            if(isElement){
+                cheat.$('.start_btn').click();
+            }
+            return(isElement);
+        }
+        make(num = 200, dif = 1){ // 布置並開始新回合
             isFunction = 'make_problem' in window;
             if(isFunction){
-                make_problem(200, 1);
+                make_problem(num, dif);
             }
             return(isFunction);
         }
@@ -162,9 +169,21 @@ function cheat(){
                 type: type
             });
         }
-        correct(){
-            colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
-            document.querySelector(`#col_${colorCode.replace('#', '')}`).click();
+        correct(clickMode = false){ // 送出正確答案
+            if(clickMode){
+                isElement = cheat.$$('#problem_text').length > 0;
+                if(isElement){
+                    colorCode = cheat.$('#problem_text').innerText.split('\n')[1];
+                    isElement = cheat.$$(`#col_${color}`).length > 0;
+                    if(isElement){
+                        color = colorCode.replace('#', '');
+                        cheat.$(`#col_${color}`).click();
+                    }
+                }
+                return(isElement);
+            }else{
+                this.submit(this.getProblemColor());
+            }
         }
         new(){ // 在新分頁開啟
             window.open('https://tumoiyorozu.github.io/white200/');
