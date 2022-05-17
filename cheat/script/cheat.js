@@ -188,14 +188,16 @@ class cheat{
         class cheatClass_twitch{ // www.twitch.tv
             constructor(){
                 this.cleanLoyaltyPoints_auto = false;
+                this.cleanLoyaltyPoints_count = 0;
             }
             cleanLoyaltyPoints(auto = this.cleanLoyaltyPoints_auto){ // 領取忠誠點數
                 this.cleanLoyaltyPoints_auto = auto;
-                pointButtons = cheat.$$('[aria-label="領取額外獎勵"]');
+                var pointButtons = cheat.$$('[aria-label="領取額外獎勵"]');
                 if(pointButtons.length > 0){
                     pointButtons.forEach(button => {
                         button.click();
                         // cheat.$$('h1.tw-title')[0].innerHTML += '[c]';
+                        this.cleanLoyaltyPoints_count += 1;
                         console.log('已自動領取忠誠點數！');
                     });
                 }
