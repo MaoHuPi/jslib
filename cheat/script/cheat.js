@@ -9,7 +9,7 @@ class cheat{
         }
         cheatString.prototype.replaceAll = function(keyword, replacement){
             return(this.split(keyword).join(replacement));
-        }
+        };
         class cheatArray extends Array{
         }
         cheatArray.prototype.search = function(start = '', end = ''){
@@ -20,23 +20,31 @@ class cheat{
                 } 
             });
             return(accords);
-        }
+        };
         cheatArray.prototype.orderedList = function(){
             return(this.map((text, index) => `${index+1}. ${text}`).join('\n'));
-        }
+        };
         cheatArray.prototype.unorderedList = function(){
             return(this.map(text => `- ${text}`).join('\n'));
-        }
-        class cheatObject extends Object{
-            keyOf(value){
-                for(key in this){
-                    if(this[key] == value){
-                        return(key);
-                    }
+        };
+        class cheatObject {
+            constructor(dict = {}){
+                for(let key in dict){
+                    this[key] = dict[key];
                 }
-                return(undefined);
             }
         }
+        cheatObject.prototype.toString = function(){
+            return(JSON.stringify(this));
+        };
+        cheatObject.prototype.keyOf = function(value){
+            for(key in this){
+                if(this[key] == value){
+                    return(key);
+                }
+            }
+            return(undefined);
+        };
         class cheatClass_sanmin{ // exam.sanmin.com.tw
             getQuestions(){ // 取得所有題目
                 let questions = [];
@@ -214,6 +222,7 @@ class cheat{
         }
         this.cheatString = cheatString;
         this.cheatArray = cheatArray;
+        this.cheatObject = cheatObject;
         this.sanmin = new cheatClass_sanmin();
         this.googleMeet = new cheatClass_googleMeet();
         this.white200 = new cheatClass_white200();
@@ -244,6 +253,9 @@ class cheat{
     }
     array(...items){
         return(new (this.cheatArray)(...items));
+    }
+    object(...items){
+        return(new (this.cheatObject)(...items));
     }
     new(){ // 在新分頁開啟
         window.open('https://github.com/MaoHuPi/cheat.js/');
