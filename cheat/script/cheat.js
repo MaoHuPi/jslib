@@ -85,14 +85,14 @@ class cheat{
         }
         class cheatClass_white200{ // tumoiyorozu.github.io/white200
             action(){ // 開始回合
-                isElement = cheat.$$('.start_btn').length > 0;
+                let isElement = cheat.$$('.start_btn').length > 0;
                 if(isElement){
                     cheat.$('.start_btn').click();
                 }
                 return(isElement);
             }
             make(num = 200, dif = 1){ // 布置並開始新回合
-                isFunction = 'make_problem' in window;
+                let isFunction = 'make_problem' in window;
                 if(isFunction){
                     make_problem(num, dif);
                 }
@@ -111,7 +111,7 @@ class cheat{
                 var type = undefined, 
                     color = undefined, 
                     flag = false;
-                isFunction = 'submit' in window;
+                let isFunction = 'submit' in window;
                 if(isFunction){
                     switch(any.length){
                         case 1:
