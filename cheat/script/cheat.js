@@ -161,7 +161,9 @@ class cheat{
                     }
                     return(isElement);
                 }else{
-                    this.submit(this.getProblemColor());
+                    return({
+                        submit: this.submit(this.getProblemColor())
+                    });
                 }
             }
             new(){ // 在新分頁開啟
