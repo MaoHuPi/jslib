@@ -9,7 +9,7 @@ function setOutput(){
         'html(script)': 
 `<script src="${path}script/cheat.js"></script>`, 
         'js(xmlhttp)': 
-`((func = () => {}) => {
+`((func = (cheat) => {window['cheat'] = cheat;}) => {
     let xmlhttp = new XMLHttpRequest();
     let rf = () => {
         if(xmlhttp.readyState == 4){
