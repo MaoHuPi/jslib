@@ -1,7 +1,7 @@
 {
     "shool1": {
         "name": "school1.js", 
-        "illustrate": "school1.js可以幫助您美化、編排您的班級網頁。<br>本函式庫支援的班網框架為「<a href=\"https://class.tn.edu.tw/\">https://class.tn.edu.tw/</a>」", 
+        "illustrate": "school1.js可以幫助您美化、編排您的班級網頁。<br>本函式庫支援的班網框架為「<a href=\"https://class.tn.edu.tw/\">https://class.tn.edu.tw/</a>」。", 
         "button": {
             "操作介面": "school1", 
             "前往檔案": "school1/script/school1.js"
