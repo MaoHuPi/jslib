@@ -7,7 +7,7 @@ sendXmlhttp('json/data.json', '', json => {
             div = document.createElement('div');
         h2.innerText = data[titleId]['name'];
         div.id = titleId;
-        div.className = 'checks';
+        div.className = 'buttons checks';
         for(let buttonId in data[titleId]['check']){
             let button = document.createElement('div');
             button.innerText = data[titleId]['check'][buttonId]['name'];
