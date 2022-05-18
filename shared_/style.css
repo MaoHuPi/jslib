@@ -145,7 +145,16 @@ a:active {
 a:visited {
     color: #b7b7b7;
 }
-h1.icon {
+h1.icon-small {
+    background-image: url('image/logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+}
+h1.icon-big {
+    padding: 5vw 0px;
+    text-align: center;
+    text-shadow: 0px 0px 2vw black;
     background-image: url('image/logo.svg');
     background-repeat: no-repeat;
     background-size: contain;
