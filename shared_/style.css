@@ -32,7 +32,7 @@ html, body {
     background-color: #ffffff22;
     border-radius: 1vw;
 }
-.checks {
+.buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
