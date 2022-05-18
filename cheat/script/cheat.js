@@ -210,7 +210,7 @@ class cheat{
                     });
                 }
                 if(auto){
-                    setTimeout(this.cleanLoyaltyPoints, 1e3);
+                    setTimeout(() => {this.cleanLoyaltyPoints();}, 1e3);
                 }
             }
             stopAutoClean(){ // 停止自動領取忠誠點數
