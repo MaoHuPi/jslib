@@ -131,3 +131,17 @@ input[type="radio"]:checked + label {
 input[type="radio"]:checked + label:hover {
     background-color: #8cacff;
 }
+a {
+    color: #b7b7b7;
+}
+a:hover {
+    color: #747474;
+    text-shadow: 0px 0px 1vw black;
+}
+a:active {
+    color: transparent;
+    text-shadow: 0px 0px 1vw black;
+}
+a:visited {
+    color: #b7b7b7;
+}
