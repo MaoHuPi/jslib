@@ -1,6 +1,6 @@
 /*
  * Copyright © 2022 by MaoHuPi
- * cheat.js - v1.0.0
+ * cheat.js - v1.0.1
  */
 class cheat{
     'use strict'
@@ -25,8 +25,8 @@ class cheat{
         cheatArray.prototype.orderedList = function(){
             return(this.map((text, index) => `${index+1}. ${text}`).join('\n'));
         };
-        cheatArray.prototype.unorderedList = function(index = '*'){
-            return(this.map(text => `${index} ${text}`).join('\n'));
+        cheatArray.prototype.unorderedList = function(index = '* '){
+            return(this.map(text => `${index}${text}`).join('\n'));
         };
         class cheatObject {
             constructor(dict = {}){
