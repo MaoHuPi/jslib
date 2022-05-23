@@ -5,6 +5,8 @@
 'use strict'
 class school1{
     constructor(settings = {}){
+        this.VERSION = '1.0.0';
+        console.log(`school1.js - v${this.VERSION}`);
         // basic variable
         this.path = 'https://maohupi.riarock.com/web/tool/318station/file';
         this.body = document.body;
