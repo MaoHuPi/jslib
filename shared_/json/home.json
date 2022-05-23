@@ -4,7 +4,8 @@
         "illustrate": "school1.js可以幫助您美化、編排您的班級網頁。<br>本函式庫支援的班網框架為「<a href=\"https://class.tn.edu.tw/\">https://class.tn.edu.tw/</a>」。", 
         "button": {
             "操作介面": "school1", 
-            "前往檔案": "school1/script/school1.js"
+            "原始程式": "school1/script/school1.js", 
+            "壓縮程式": "school1/script/school1.min.js"
         }
     }, 
     "cheat": {
@@ -12,7 +13,8 @@
         "illustrate": "cheat.js可以幫助您在各網頁服務上進行「自動化」。<br>比如「Google Meet自動報數」，或「Twitch自動領取忠誠點數」等。", 
         "button": {
             "操作介面": "cheat", 
-            "前往檔案": "cheat/script/cheat.js"
+            "原始程式": "cheat/script/cheat.js", 
+            "壓縮程式": "cheat/script/cheat.min.js"
         }
     }
 }
