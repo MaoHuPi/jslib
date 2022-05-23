@@ -40,7 +40,7 @@ class cheat{
         cheatObject.prototype.toString = function(){
             return(JSON.stringify(this));
         };
-        cheatObject.prototype.keyOf = function(value){
+        cheatObject.prototype.indexOf = function(value){
             for(key in this){
                 if(this[key] == value){
                     return(key);
