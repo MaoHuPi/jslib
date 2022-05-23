@@ -22,7 +22,7 @@ function setOutput(){
     xmlhttp.open("GET", '${path}script/cheat.js');
     xmlhttp.send();
 })();`, 
-        'js(cheet)': window['cheat.js']
+        'js(cheat)': window['cheat.js']
     }[$('input[name="outputType"]:checked').value];
 }
 function copyOutput(){
