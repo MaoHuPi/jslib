@@ -5,6 +5,7 @@
 class cheat{
     'use strict'
     constructor(){
+        VERSION = '1.0.1';
         class cheatString extends String{
         }
         cheatString.prototype.replaceAll = function(keyword = '', replacement = ''){
