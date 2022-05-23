@@ -1,11 +1,11 @@
 /*
  * Copyright © 2022 by MaoHuPi
- * cheat.js - v1.0.1
+ * cheat.js - v1.0.2
  */
 class cheat{
     'use strict'
     constructor(){
-        this.VERSION = '1.0.1';
+        this.VERSION = '1.0.2';
         console.log(`cheat.js - v${this.VERSION}`);
         class cheatString extends String{
         }
