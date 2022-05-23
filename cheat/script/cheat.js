@@ -7,7 +7,7 @@ class cheat{
     constructor(){
         class cheatString extends String{
         }
-        cheatString.prototype.replaceAll = function(keyword, replacement){
+        cheatString.prototype.replaceAll = function(keyword = '', replacement = ''){
             return(this.split(keyword).join(replacement));
         };
         class cheatArray extends Array{
@@ -15,6 +15,7 @@ class cheat{
         cheatArray.prototype.search = function(start = '', end = ''){
             let accords = [];
             this.forEach(text => {
+                text = text.toString();
                 if((start == '' || text.indexOf(start) == 0) && (end == '' || text.indexOf(end) == text.length - end.length)){
                     accords.push(text);
                 } 
@@ -24,8 +25,8 @@ class cheat{
         cheatArray.prototype.orderedList = function(){
             return(this.map((text, index) => `${index+1}. ${text}`).join('\n'));
         };
-        cheatArray.prototype.unorderedList = function(){
-            return(this.map(text => `- ${text}`).join('\n'));
+        cheatArray.prototype.unorderedList = function(index = '*'){
+            return(this.map(text => `${index} ${text}`).join('\n'));
         };
         class cheatObject {
             constructor(dict = {}){
