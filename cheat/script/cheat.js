@@ -1,6 +1,6 @@
 /*
  * Copyright © 2022 by MaoHuPi
- * cheet.js - v1.0.0
+ * cheat.js - v1.0.0
  */
 class cheat{
     'use strict'
