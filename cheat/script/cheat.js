@@ -1,11 +1,11 @@
 /*
  * Copyright © 2022 by MaoHuPi
- * cheat.js - v1.0.2
+ * cheat.js - v1.1.0
  */
 class cheat{
     'use strict'
     constructor(){
-        this.VERSION = '1.0.2';
+        this.VERSION = '1.1.0';
         console.log(`cheat.js - v${this.VERSION}`);
         class cheatString extends String{
         }
@@ -71,6 +71,32 @@ class cheat{
             }
             new(){ // 在新分頁開啟
                 window.open('https://exam.sanmin.com.tw/exam/home/');
+            }
+        }
+        class cheatClass_ehanlin{ // qt.hle.com.tw
+            downloadAnswer(){ // 下載詳解
+                const GET = {};
+                location.search.replace('?', '').split('&').map(keyAndValue => {
+                    keyValueList = keyAndValue.split('=');
+                    GET[keyValueList[0]] = keyValueList[1];
+                });
+                if('id' in GET){
+                    cheat.sendXmlhttp(`https://hanlintest.ehanlin.com.tw/hanlintest-api/Student/examAnswer?id=${GET['id']}`, '', t => {
+                        let json = JSON.parse(t);
+                        let taskId2 = json['taskId'].split('_')[1];
+                        cheat.sendXmlhttp(`https://testbank.ehanlin.com.tw/api/activities/${taskId2}`, '', t => {
+                            let json = JSON.parse(t);
+                            window.open(json['manifest'][0]['url']);
+                        }, 'get');
+                    }, 'get');
+                }
+            }
+            logout(){ // 登出
+                location.href += '#';
+                location.reload();
+            }
+            new(){ // 在新分頁開啟
+                window.open('https://qt.hle.com.tw/');
             }
         }
         class cheatClass_googleMeet{ // meet.google.com
@@ -227,6 +253,7 @@ class cheat{
         this.cheatArray = cheatArray;
         this.cheatObject = cheatObject;
         this.sanmin = new cheatClass_sanmin();
+        this.ehanlin = new cheatClass_ehanlin();
         this.googleMeet = new cheatClass_googleMeet();
         this.white200 = new cheatClass_white200();
         this.twitch = new cheatClass_twitch();
