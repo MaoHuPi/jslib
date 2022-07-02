@@ -77,7 +77,7 @@ function randomAndPlay(){
                 type: 'triangle'
             });
             tl.add(1e2*2*(i*4 + j), sd);
-            tl.add(1e2*2*(i*4), new(sp.sound)({...sd, length: 1e2*8, type: 'sine'}));
+            tl.add(1e2*2*(i*4), new (sp.sound)({...sd, length: 1e2*8, type: 'sine'}));
         }
     }
     tl.timePoint = 0;
