@@ -67,7 +67,7 @@ console.log(sheetData);
 /* play */
 function randomAndPlay(){
     sp = new sheetPlayer();
-    tl = new(sp.timeline)();
+    tl = new (sp.timeline)();
     for(let i = 0; i < sheetData['notes'].length; i++){
         for(let j = 0; j < sheetData['notes'][i].length; j++){
             let sd = new(sp.sound)({
